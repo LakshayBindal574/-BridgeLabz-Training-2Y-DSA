@@ -1,0 +1,162 @@
+Asymptotic Notation Applications
+
+a) Proof of worst-case complexity using Big-O definition
+
+Definition of Big-O
+A function T(n) is O(f(n)) if there exist positive constants c and n₀ such that
+T(n) ≤ c · f(n) for all n ≥ n₀
+
+Bubble Sort worst case
+
+Worst case occurs when the array is reverse sorted.
+
+Number of comparisons
+T(n) = n(n − 1)
+T(n) = n² − n
+
+Choose
+f(n) = n²
+c = 2
+n₀ = 1
+
+For all n ≥ 1
+n² − n ≤ 2n²
+
+Therefore
+T(n) ≤ c · n²
+
+Hence, Bubble Sort worst-case time complexity is O(n²).
+
+Merge Sort worst case
+
+Merge Sort always divides the array and merges subarrays.
+
+Time complexity
+T(n) = n log₂ n
+
+Choose
+f(n) = n log n
+c = 1
+n₀ = 1
+
+For all n ≥ 1
+T(n) ≤ c · n log n
+
+Hence, Merge Sort worst-case time complexity is O(n log n).
+
+Quick Sort worst case
+
+Worst case occurs when pivot is always smallest or largest.
+
+Time complexity
+T(n) = n + (n − 1) + (n − 2) + ... + 1
+T(n) = n(n + 1) / 2
+T(n) ≤ n²
+
+Therefore, Quick Sort worst-case time complexity is O(n²).
+
+Insertion Sort worst case
+
+Worst case occurs for reverse sorted data.
+
+Time complexity
+T(n) = n(n − 1) / 2
+T(n) ≤ n²
+
+Therefore, Insertion Sort worst-case time complexity is O(n²).
+
+b) Matching data types with algorithms
+
+Type A: Nearly sorted data (90% sorted)
+
+Best algorithm: Insertion Sort
+Reason: Best case time complexity is O(n) and performs efficiently on nearly sorted data.
+
+Type B: Completely random data
+
+Best algorithm: Quick Sort
+Reason: Average case time complexity is O(n log n) and performs well in practice.
+
+Type C: Reverse sorted data
+
+Best algorithm: Merge Sort
+Reason: Guaranteed Θ(n log n) time complexity in all cases.
+
+c) Difference between Θ(n log n) and O(n log n)
+
+Merge Sort is Θ(n log n) because
+Its best, average, and worst-case complexities are all n log n.
+Θ notation provides a tight bound.
+
+Quick Sort is O(n log n) for average case because
+It can degrade to O(n²) in the worst case.
+O notation only provides an upper bound.
+
+Thus, Θ shows exact growth rate while O shows maximum possible growth.
+
+d) Decision tree based on data size and characteristics
+
+Small data (n < 50)
+
+Sorted or nearly sorted
+Use Insertion Sort
+Reason: Low overhead and O(n) best case.
+
+Random or reverse
+Use Insertion Sort
+Reason: Dataset is too small for advanced algorithms.
+
+Medium data (50 ≤ n < 10,000)
+
+Nearly sorted
+Use Insertion Sort
+Reason: Best case O(n).
+
+Random
+Use Quick Sort
+Reason: Average case O(n log n).
+
+Reverse sorted
+Use Merge Sort
+Reason: Avoid Quick Sort worst case.
+
+Large data (n ≥ 10,000)
+
+Any data order
+Use Merge Sort
+Reason: Predictable Θ(n log n) performance.
+
+Random data with good pivot selection
+Quick Sort can be used.
+
+e) Comparison of Mystery Sort and Merge Sort
+
+Given
+Mystery Sort:
+T₁(n) = 5n² + 100n + 1000
+
+Merge Sort:
+T₂(n) = 10n log₂ n
+
+For large n
+n² grows faster than n log n
+
+Therefore
+5n² >> 10n log n as n increases
+
+Testing small values also shows
+Merge Sort performs faster even for moderate n
+
+Graphically
+The n² curve rises much faster than the n log n curve
+
+Conclusion
+Mystery Sort is slower than Merge Sort for all practical values of n.
+
+Final Conclusion
+
+Insertion Sort is best for small or nearly sorted data.
+Quick Sort is efficient for random data in average case.
+Merge Sort is the safest choice for large datasets.
+Θ notation gives tight bounds while O notation gives upper bounds.
+Asymptotic analysis helps in making practical algorithm decisions.

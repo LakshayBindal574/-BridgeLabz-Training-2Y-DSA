@@ -1,0 +1,95 @@
+a) Evaluation of Algorithm Properties
+
+The five fundamental properties of an algorithm are Input, Output, Definiteness, Finiteness, and Effectiveness.
+Algorithm A
+Input: Takes temperature array and value of n
+Satisfied
+Output: Returns the average temperature
+Satisfied
+Definiteness: All steps are clear and well defined
+Satisfied
+Finiteness: The loop runs n times and then stops
+Satisfied
+Effectiveness: Uses basic operations like addition and division
+Satisfied
+So, Algorithm A satisfies all five properties of an algorithm.
+
+Algorithm B
+Input: Takes temperature array and value of n.
+Satisfied
+Output: Returns a value stored in sum
+Satisfied
+Definiteness: Steps are clearly written but logically incorrect
+Satisfied
+Finiteness: Both loops run for a finite number of times
+Satisfied
+Effectiveness: Uses simple arithmetic operations
+Satisfied
+Algorithm B satisfies the formal properties but does not give correct output.
+
+b) Step-by-Step Execution
+temperatures = [20, 25, 22, 24, 21]
+n = 5
+Algorithm A
+Iteration total
+Start	   0
+i = 1	  20
+i = 2	  45
+i = 3	  67
+i = 4	  91
+i = 5	  112
+
+Algorithm B
+First loop (adding values)
+Iteration	sum
+Start	        20
+i = 2	        45
+i = 3	        67
+i = 4	        91
+i = 5	       112
+
+Second loop (division)
+
+Iteration	sum
+i = 1	       22.4
+i = 2	       4.48
+i = 3	       0.896
+i = 4	       0.1792
+i = 5	       0.03584
+Incorrect output
+
+c) Logical Error in Algorithm B
+
+The error is that the algorithm divides the sum by n inside a loop.
+This causes the sum to be divided by n multiple times instead of only once.
+
+Mathematical Principle Violated
+
+The average formula:
+
+Average= (Sum of values/n)
+
+Algorithm B incorrectly performs:
+
+Sum/n^n
+
+d) Comparison of Algorithm A and B
+Factor	   Algorithm A	      Algorithm B
+Simplicity	Simple	       Complex
+Correctness	Correct	       Incorrect
+Efficiency	O(n)	       O(n) but unnecessary loop
+Reliability	High	       Low
+Best Choice =Algorithm A should be used in production because it is correct, simple, and efficient.
+
+e) Test Strategy
+To verify Algorithm A, the following test cases should be used:
+Test Case	Input	             Expected      Output
+Normal case	[20,25,22,24,21],    n=5	    22.4
+Single element	[30],                n=1	    30
+Same values	[10,10,10],          n=3	    10
+Negative temperatures[-5, -10, 0, 5], n=4	   -2.5
+Zero elements	 [],                  n=0	    Error / handled condition 
+	​
+
+
+

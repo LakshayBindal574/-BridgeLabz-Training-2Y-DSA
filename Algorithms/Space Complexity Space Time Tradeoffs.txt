@@ -1,0 +1,79 @@
+Problem 3: Space Complexity and Space–Time Tradeoffs
+a) Time Complexity Analysis
+Let:
+n = number of completed courses
+m = number of prerequisite courses
+Implementation A: Nested Loop
+Outer loop runs m times
+Inner loop runs n times in the worst case
+Time Complexity=m × n
+Time Complexity = O(mn)
+
+Implementation B: Hash Set
+Step 1: Creating hash set
+Loop runs n times → O(n)
+Step 2: Checking prerequisites
+Loop runs m times
+Hash lookup is O(1) on average
+Total Time=O(n)+O(m)
+Time Complexity = O(n + m)
+
+b) Space Complexity (Auxiliary Space)
+Implementation A
+Uses only variables like found, i, j
+No extra data structures
+Space Complexity = O(1)
+Implementation B
+Creates a hash set storing n completed courses
+Each entry takes extra memory
+Space Complexity = O(n)
+
+c) Given Values Calculation
+Given:
+n = 40
+m = 5
+Students per day = 100,000
+Each hash set entry = 8 bytes
+Implementation A: Total Comparisons per Day
+Worst-case comparisons per student: m × n=5×40=200
+Total comparisons per day:200×100,000=20,000,000
+Total comparisons/day = 20 million
+
+Implementation B: Total Memory Usage per Day
+Memory per student: 40×8=320 bytes
+Total memory per day:320×100,000=32,000,000 bytes =32 MB
+
+d) Choosing Implementation Based on Constraints
+Given Constraints
+Response time < 10 ms per check
+Memory < 1 GB for 10,000 concurrent requests
+Each comparison = 0.1 microseconds
+Implementation A: Response Time
+Worst-case comparisons
+m×n=200
+Time per request: 200×0.1=20 microseconds
+
+Meets response-time requirement
+Memory usage:≈0
+Meets memory constraint
+
+Implementation B: Memory Usage
+Memory per request: 320 bytes
+Memory for 10,000 concurrent requests:  320×10,000=3,200,000 bytes
+Well below 1 GB limit
+Response time also very fast
+
+e) Hybrid Approach (Space–Time Tradeoff)
+Proposed Strategy
+If m is very small (1–2):
+Use Implementation A (nested loop)
+Reason: Hash set overhead not worth it
+If m is large (20+):
+Use Implementation B (hash set)
+Reason: Saves significant time
+
+
+Final Conclusion
+Implementation A: Space-efficient but slower
+Implementation B: Time-efficient with reasonable memory usage
+Best real-world solution is a hybrid approach based on number of prerequisites

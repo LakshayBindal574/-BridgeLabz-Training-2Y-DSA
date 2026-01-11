@@ -1,0 +1,77 @@
+Problem 2: Time Complexity Analysis and Comparison
+a)Worst-case number of comparisons (n = 10,000,000)
+Algorithm A: Linear Search
+In the worst case, the username is not present or is the last element.
+Comparisons required = n
+n=10,000,000
+Worst-case comparisons = 10,000,000
+
+Algorithm B: Binary Search
+Each comparison reduces the search space by half.
+Worst-case comparisons = (log₂ n)
+log2(10,000,000)≈23.25⇒24 comparisons
+Worst-case comparisons ≈ 24
+
+Algorithm C: Hash Table Lookup
+In the worst case (ideal hashing), lookup takes 1 comparison.
+Worst-case comparisons = 1
+
+b) Time Complexity (Big-O Notation)
+Algorithm A: Linear Search
+Time taken increases directly with n,  T(n)=n , Time Complexity Big-O: O(n)
+Algorithm B: Binary Search
+Search space halves every step , T(n)=log2​n ,Time Complexity Big-O: O(log n)  
+Algorithm C: Hash Table Lookup
+Lookup time is constant (on average) ,T(n)=1, Big-O: O(1)
+
+c) Comparison Table
+n (users)	       Linear Search	      Binary Search	        Hash Table
+100	        100	                7	                 1
+1,000	       1,000	                10	                 1
+10,000	      10,000	                14	                 1
+100,000	     100,000	                17	                 1
+1,000,000	      1,000,000                  20	                 1
+10,000,000	10,000,000	        24	                 1
+Observation
+Linear search grows linearly
+Binary search grows very slowly
+Hash table lookup remains constant
+
+d) Performance at Peak Load
+Given 
+50,000 searches per second
+1 comparison = 1 nanosecond (ns)
+Algorithm A: Linear Search
+                     50,000×10,000,000=500,000,000,000 ns
+                     =500 seconds
+Cannot handle the load
+
+Algorithm B: Binary Search
+                     50,000×24=1,200,000 ns
+                     =0.0012 seconds
+Can handle the load
+
+Algorithm C: Hash Table 
+                    50,000×1=50,000 ns
+                    =0.00005 seconds
+Can easily handle the load.
+
+e) When Is Sorting + Binary Search Worthwhile?
+Costs
+Sorting cost = O(n log n)
+Binary search per query = O(log n)
+Linear search per query = O(n)
+Let:
+k = number of searches
+Linear Search Total Cost    k*n
+
+Sort + Binary Search Total Cost    nlogn+klogn
+Condition
+Binary search is better when:
+nlogn+klogn<kn
+
+Final Conclusion
+Linear Search: Too slow for large datasets
+Binary Search: Efficient but requires sorting
+Hash Table: Fastest and best choice for real-time systems
+Best choice for production: Hash Table Lookup
